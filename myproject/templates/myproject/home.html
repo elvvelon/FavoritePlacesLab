@@ -1,0 +1,15 @@
+{% extends 'myproject/base.html' %}
+
+{% block content %}
+    <p>A simple app to store your favorite locations and help you decide where to go today.</p>
+    
+    <form action="{% url 'home' %}" method="get">
+        <input type="hidden" name="random" value="true">
+        <button type="submit">Where to go today?</button>
+    </form>
+
+    {% if random_place %}
+        <h2>System picked for you:</h2>
+        {% include 'myproject/_place_preview.html' with place=random_place %}
+    {% endif %}
+{% endblock %}
