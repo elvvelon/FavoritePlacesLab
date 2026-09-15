@@ -1,8 +1,9 @@
 {% extends 'myproject/base.html' %}
+{% load static %}
 
 {% block content %}
     <h2>{{ place.name }}</h2>
-    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Cover" style="border-radius: 4px; margin-bottom: 15px;">
+    <img src="{% static "myproject/images/cover.jpg" %}" alt="Cover" style="border-radius: 4px; margin-bottom: 15px;">
     <p><strong>Rating:</strong> <span class="star-rating">{{ place.get_rating }}</span></p>
     <p><strong>Address:</strong> {{ place.address|default:"Secret place👀" }}</p>
     <p><strong>Type:</strong> {{ place.place_type }}</p>
