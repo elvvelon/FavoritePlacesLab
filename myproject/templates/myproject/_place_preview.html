@@ -1,0 +1,21 @@
+<article>
+    <header>
+        <h3 style="margin-bottom: 0;"><a href="{% url 'place_detail' place.pk %}">{{ place.name }}</a></h3>
+    </header>
+
+    <img src="https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=800&q=80" alt="Cover" style="border-radius: 4px; margin-bottom: 15px;">
+
+    <p>
+        <strong>Type:</strong> {{ place.place_type }}<br>
+        <strong>Address:</strong> {{ place.address|default:"Secret place👀" }}<br>
+        <strong>Rating:</strong> <span class="star-rating">{{ place.get_rating }}</span>
+    </p>
+
+    <blockquote>
+        {{ place.get_short_description }}
+    </blockquote>
+
+    <footer>
+        <small>Added on: {{ place.created_at|date:"d.m.Y" }}</small>
+    </footer>
+</article>

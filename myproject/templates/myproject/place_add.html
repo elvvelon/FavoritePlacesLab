@@ -1,0 +1,10 @@
+{% extends 'myproject/base.html' %}
+
+{% block content %}
+    <h1>Add New Place</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Place</button>
+    </form>
+{% endblock %}
